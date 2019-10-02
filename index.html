@@ -1,0 +1,190 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Poker Bounty Calculator - The #1 Online Bounty Equity Calculator </title>
+        <meta name="description" content="Tired of feeling lost on calling those all-ins with a bounty on the line? Start using our Online Poker Bounty Calculator right now and know your equity. 100% Free. No registration required.">
+        <meta name="keywords" content="bounty calculator, poker bounty calculator">
+        <meta name="author" content="Weuler Borges">
+        <link rel="stylesheet" type="text/css" href="bootstrap.min.css">
+        <script src="bootstrap.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" href="app.css">
+    </head>
+
+    <!-- Header -->
+    <div style="margin:0px;background-color:#212529" class="jumbotron text-center">
+        <h1 style="color:aliceblue">BOUNTY-CHIPS CALCULATOR</h1>
+        <p style="color:aliceblue">A simple Bounty Calculator for studying your Poker Game</p>
+    </div>
+    <!-- End of Header -->
+    
+    <!-- Input forms -->
+    <div style="padding-bottom:10px;margin:0px;background-color:rgba(16, 206, 16, 0.397)" class="jumbotron">
+        <form id="bounty-form" class="needs-validation" novalidate>
+            <div style="padding-left:15%; width:85%" class="form-row">
+                <div class="form-group col-md-4">
+                    <label>Villain Bet:</label>
+                    <input id="bet-size" type="number" step="any"class="form-control" required>
+                    <div class="invalid-feedback">
+                        Invalid bet size.
+                    </div>
+                </div>
+
+                <div class="form-group col-md-4">
+                    <label>Your Chips on Table:</label>
+                    <input id="chips" type="number" step="any"class="form-control" required>
+                    <div class="invalid-feedback">
+                        Invalid chip number.
+                    </div>
+                </div>
+
+                <div  class="form-group col-md-4">
+                    <label>Total Pot:</label>
+                    <input id="pot" type="number" step="any" class="form-control" required>
+                    <div class="invalid-feedback">
+                        Invalid pot size.
+                    </div>
+                </div>
+
+            </div>
+
+        
+            <div style="padding-left:15%; width:85%" class="form-row">
+                    
+                    <!-- <div style="padding-top:25px" class="dropdown col-sm-3">
+                        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                            Initial Stack
+                        </button>
+
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="#">Link 1</a>
+                            <a class="dropdown-item" href="#">Link 1</a>
+                            <a class="dropdown-item" href="#">Link 1</a>
+                        </div>
+                    </div> -->
+
+                    <div class="form-group col-md-4">
+                        <label for="sel1">Initial Stack:</label>
+                        <select id="initial-stack" class="form-control" id="sel1" required>
+                            <option value="" selected>Select a stack size</option>
+                            <option>1500</option>
+                            <option>3000</option>
+                            <option>5000</option>
+                            <option>10000</option>
+                            <option>20000</option>
+                            <option>50000</option>
+                        </select>
+                    </div> 
+
+                    <!-- <div class="form-group col-sm-3">
+                        <label>Initial Stack:</label>
+                        <input type="text" class="form-control">
+                    </div> -->
+        
+                    <div class="form-group col-md-4">
+                        <label>Villain Bounty:</label>
+                        <input id="bounty" type="number" step="any" class="form-control" required>
+                        <div class="invalid-feedback">
+                            Invalid bounty size.
+                        </div>
+                    </div>
+        
+                    <div class="form-group col-md-4">
+                        <label>Buy-In:</label>
+                        <input id="buy-in" type="number" step="any" class="form-control" required>
+                        <div class="invalid-feedback">
+                            Invalid buy-in size.
+                        </div>
+                    </div>
+        
+                </div>
+
+                <div style="margin-top:28px" class="row text-center">
+                    <div class="col-md-4 offset-md-4">
+                        <button id="clear-btn" type="button" class="btn btn-danger">
+                            Clear
+                        </button>
+
+                        <button id="submit-btn" style="margin-left:10px" type="submit" class="btn btn-primary">
+                            Calculate
+                        </button>
+                    </div>                
+                </div>
+
+                <div class="row text-center">                
+                    <h2 style="margin-top:40px" class="col-md-4 offset-md-4" id="output"></h2>
+                </div>
+        </form>
+    </div>
+    <!-- End of Input forms -->
+
+    <!-- About Calculator -->
+    <div style="background:#212529;margin-bottom:0px; color:aliceblue" class="jumbotron">
+        <div class="col-md-4 offset-md-2">
+            <h1 >About the Calculator</h1>
+
+            <p style="padding-top:20px">We use a simple math strategy to create an equivalence between bounty and chip count. 
+                Basically we say that the initial bounty is worth half initial stack. Therefore if the target 
+                has 10x the initial bounty we'll add 10x half of the initial stack to the pot and calculate 
+                the equity needed for a breakeven call.
+            </p>
+
+            <p style="padding-top:20px">
+                Although this is a very well known strategy for calculation, it's not very acurate on some situations 
+                and alternatives exist. 
+            </p>
+
+            <p style="padding-top:20px">
+                We will love to hear your feedback on this tool therefore don't hesitate on mailing me!
+            </p>
+        </div>
+    </div>
+    <!-- End of About Calculator -->
+
+    <!-- Donate -->
+    <div style="color:#212529;background-color:rgba(16, 206, 16, 0.397)" class="jumbotron">
+
+        <div class="col-md-4 offset-md-2">
+            <h1>Donate</h1>
+
+            <p style="padding-top:20px">
+                We won't monetize this tool at all, therefore consider returning some of the EV that this tool has added
+                to your game in order to help we maintaining the servers up.
+            </p>
+
+            <p style="padding-top:20px">
+                For now I can receive transfers via PayPal to the <strong>weulerfilho@outlook.com</strong> e-mail
+                or on my PokerStars account <strong>weulerfilho</strong>.
+            </p>
+        </div>
+    </div>
+    <!-- End of Donate -->
+
+    <!-- About Dev -->
+    <div style="background:aliceblue;margin-bottom:0px; color:#212529" class="jumbotron">
+        <div class="col-md-4 offset-md-2">
+            <h1 >Know the Dev</h1>
+
+            <p style="padding-top:20px">I'm a Brazillian Computer Science student on the senior year. I play poker for about 2 years
+                and although I've put a decent volume on PokerStars micro-limits, I play it recreationally.
+            </p>
+
+            <p style="padding-top:20px">
+                I give programming private lessons and work on some projects as a freelancer for living. If you are interested
+                on hiring my services for any of those activities contact me on my e-mail <strong>weulerfilho@outlook.com</strong>
+            </p>
+        </div>
+    </div>
+        <!-- End of About Dev -->
+
+    <div class="copyright py-4 text-center text-white">
+        <div class="container">
+            <small>Copyright © Weuler Borges 2018</small>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+        
+</html>

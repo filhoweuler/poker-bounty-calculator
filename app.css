@@ -1,0 +1,12 @@
+.jumbotron {
+    border-radius: 0;
+    margin-bottom:0px;
+}
+
+.copyright {
+    background-color: #1a252f;
+}
+
+.pb-4, .py-4 {
+    padding-bottom: 1.5rem !important;
+}
